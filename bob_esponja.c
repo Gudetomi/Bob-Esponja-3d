@@ -133,27 +133,6 @@ void DrawParalelepidicrack(){
 	glDisableClientState(GL_VERTEX_ARRAY);
 }
 
-void cubeSlice(){
-	glEnable(GL_STENCIL_TEST);
-    glColorMask(GL_FALSE, GL_FALSE, GL_FALSE, GL_FALSE);
-    glStencilFunc(GL_ALWAYS, 1, 1);
-    glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
-
-    // Desenhe a forma de recorte (neste exemplo, um plano)
-	glColor3f(0, 1, 0);
-    glBegin(GL_POLYGON);
-		glVertex3f(-0.5f, -0.5f, 0.15f);
-		glVertex3f(-0.5f, -0.5f, 0.5f);
-		glVertex3f(-0.5f, 0.5f, 0.5f);
-		glVertex3f(-0.5f, 0.5f, 0.15f);
-    glEnd();
-	
-
-    // Ative o recorte usando o stencil
-    glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
-    glStencilFunc(GL_EQUAL, 1, 1);
-    glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP);
-}
 
 //Desenha um círculo de raio 1 centrado na origem
 void desenhaCirculo(float radius) {
@@ -173,7 +152,6 @@ void desenhaQuadrado() {
         glVertex2f(-0.5, 0.5);
     glEnd();
 }
-
 
 
 void draw_bob_esponja() {
